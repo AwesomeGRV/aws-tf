@@ -34,7 +34,7 @@ jobs:
         id: plan
         continue-on-error: true
         run: |
-          terraform plan -auto-approve -input=false
+          terraform plan -out=tfplan -input=false
       - name: Apply Terraform
         run: |
           terraform apply -auto-approve -input=false
