@@ -40,7 +40,7 @@ jobs:
           terraform apply -auto-approve -input=false
       - name: sleep for 15 minutes
         run: |
-          sleep 900
+          sleep 600
       - name: Destroy Terraform
         run: |
           terraform destroy -auto-approve -input=false
