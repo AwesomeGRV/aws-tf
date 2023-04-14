@@ -1,0 +1,8 @@
+*.tmp
+.terraform
+*.tfvars
+tfplan
+.env
+terraform.tfstate
+.terraform.lock.hcl
+auth
