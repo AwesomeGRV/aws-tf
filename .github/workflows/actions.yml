@@ -27,20 +27,24 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      - name: Initialize Terraform
+      - name: Initialize Terraform For Dev
+        working-directory: ./development
         run: |
           terraform init -input=false
       - name: Plan Terraform
         id: plan
         continue-on-error: true
+        working-directory: ./development
         run: |
           terraform plan -out=tfplan -input=false
       - name: Apply Terraform
+        working-directory: ./development
         run: |
           terraform apply -auto-approve -input=false
       - name: sleep for 15 minutes
         run: |
           sleep 600
       - name: Destroy Terraform
+        working-directory: ./development
         run: |
           terraform destroy -auto-approve -input=false
